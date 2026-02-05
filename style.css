@@ -1,0 +1,222 @@
+/* faz a pagina ocupar 100% da tela */
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #111;
+  overflow: hidden; /* evita scroll geral */
+}
+
+/* container principal (substitui a tabela) */
+.grid-container {
+  display: grid; /* ativa o css grid */
+
+  /* duas colunas */
+  grid-template-columns: 30% 70%;
+
+  /* duas linhas proporcionais à tela */
+  grid-template-rows: 30% 70%;
+
+  width: 100%;
+  height: 100vh; /* altura total do navegador */
+}
+
+/* estilo base de todas as celulas */
+.celula {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* posicionamento das celulas */
+.celula1 { grid-column: 1; grid-row: 1; } /* logo */
+.celula2 { grid-column: 2; grid-row: 1; } /* video */
+.celula3 { grid-column: 1; grid-row: 2; } /* botoes */
+.celula4 { grid-column: 2; grid-row: 2; } /* conteudo js */
+
+/* centraliza logo e video */
+.celula1,
+.celula2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* imagem e video se ajustam à celula */
+.celula img,
+.celula video,
+.celula iframe {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* mostra inteiro, nao corta */
+  border: none;
+}
+.celula1 img {
+object-fit: contain;
+width: 100%;
+height: 100%;
+background-color: #02382548;
+border-radius: 70px;
+}
+/* scroll apenas nas celulas de baixo */
+.celula3,
+.celula4 {
+  overflow-y: auto;
+}
+/* faz o video preencher totalmente a celula */
+.celula2 video {
+  width: 100%;      /* ocupa toda a largura */
+  height: 100%;     /* ocupa toda a altura */
+  object-fit: cover; /* preenche a celula inteira */
+  border-radius: 30px;
+}
+
+/*Celula 3 links e botoes */
+.celula3 {
+  padding: 10px;
+  text-align: center;
+ 
+}
+
+/* Botoes brilhantes */
+.glow-on-hover {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif; /* muda a fonte */
+  font-size: 16px;                    /* tamanho do texto */
+  letter-spacing: 1px;                /* espaço entre letras */
+  font-weight: bold;
+}
+
+.glow-on-hover:before {
+  content: '';
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+/* botão de contatos (conteudo)*/
+/* container central */
+.contato-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centro vertical */
+  align-items: center;     /* centro horizontal */
+
+  gap: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+/* titulo */
+.contato-container h2 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* botao base */
+.contato-btn {
+  width: 260px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+
+  border-radius: 35px; /* bem arredondado */
+  text-decoration: none;
+
+  font-size: 18px;
+  color: white;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* icones */
+.contato-btn i {
+  font-size: 24px;
+}
+
+/* LINKEDIN */
+.linkedin {
+  background-color: #0a66c2;
+}
+
+.linkedin:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #0a66c2;
+}
+
+/* GITHUB */
+.github {
+  background-color: #24292e;
+}
+
+.github:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px white;
+}
+
+/* EMAIL */
+.email {
+  background-color: #c71610;
+}
+
+.email:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px #c71610;
+}

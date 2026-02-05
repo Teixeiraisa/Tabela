@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tabela layout</title>
+   <!-- linkando o css -->
+  <link rel="stylesheet" href="style.css">
+  <!-- biblioteca de icones -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <!-- container principal do grid -->
+  <div class="grid-container">
+
+    <!-- celula 1 (logo) -->
+    <div class="celula celula1">
+      <img src="logotabel.png">
+    </div>
+
+    <!-- celula 2 (video) -->
+    <div class="celula celula2">
+      <video autoplay loop muted>
+        <source src="loop.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- celula 3 (links) -->
+     <!--A tag button é para colocar o botao decorado em cada "link"-->
+    <div class="celula celula3">
+      <p><a href="#" onclick="mostrarconteudo(1)"><button class="glow-on-hover" type="button">Música</button></a></p>
+      <p><a href="#" onclick="mostrarconteudo(2)"><button class="glow-on-hover" type="button">Jogos</button></a></p>
+      <p><a href="#" onclick="mostrarconteudo(3)"><button class="glow-on-hover" type="button">Projetos</button></a></p>
+      <p><a href="#" onclick="mostrarconteudo(4)"><button class="glow-on-hover" type="button">Wiki</button></a></p>
+      <p><a href="#" onclick="mostrarconteudo(5)"><button class="glow-on-hover" type="button">Contatos</button></a></p>
+    </div>
+
+    <!-- celula 4  -->
+    <div class="celula celula4" id="celula4">
+      <!-- aqui aparece o conteudo quiando clica no link -->
+    </div>
+
+  </div>
+
+  <!-- linkando o javascript -->
+  <script src="script.js"></script>
+  <script>
+  // a pagina ja abrir com o conteudo aparecendo
+  window.onload = function () {
+    mostrarconteudo(1); // número da opção da playlist
+  };
+</script>
+
+
+</body>
+</html>
