@@ -1,12 +1,18 @@
 
+  //o function vai ser responsável por mudar o conteudo da celula 4 quando os botões forem clicados
   function mostrarconteudo(opcao)  {
 
+    //os ifs são os botões que vão ser clicados e estão com o conteudo dentro
      if (opcao === 1) {
     document.getElementById("celula4").innerHTML =  `
    <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7qEy2GvASiOfTO5mq9m6Hu?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
    </iframe>
   `;
   } 
+  //o iframe permite carregar outro site dentro da sua página
+ // Funciona como uma "janela embutida"
+ // o inner html permite programar o html dentro do js e a crase deixa usar mais de uma linha na programação
+
      else if (opcao === 2) {
     document.getElementById("celula4").innerHTML = `
     <div style="width:100%; height:100%;">
@@ -68,6 +74,8 @@
     </div>
   `
   }   
+  // target="_blank" faz o link abrir em uma nova aba
+
   else if (opcao === 5) {
   document.getElementById("celula4").innerHTML = `
     <div class="contato-container">
